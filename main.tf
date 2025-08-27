@@ -103,19 +103,14 @@ resource "aws_security_group" "web_sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  
+  # Allow inbound HTTPS from the world AND SSM traffic from AWS
   ingress {
+    description = "Allow HTTPS for web traffic and SSM for management"
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  # CRITICAL: Allow inbound for SSM from AWS (so we can connect)
-  ingress {
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # Can be tightened later
   }
 
   # Allow ALL outbound traffic (the web server needs to talk to the internet and the database)
@@ -157,6 +152,14 @@ resource "aws_security_group" "db_sg" {
   tags = {
     Name = "Database-SG"
   }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  depends_on = [
+    aws_security_group.web_sg
+  ]
 }
 
 # 12. FINALLY: Launch your EC2 Instance
@@ -195,6 +198,16 @@ resource "aws_subnet" "private" {
 
   tags = {
     Name = "SecureHost-Private-Subnet"
+  }
+}
+
+resource "aws_subnet" "private_b" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.0.3.0/24"
+  availability_zone = "us-east-1b"
+
+  tags = {
+    Name = "SecureHost-Private-Subnet-B"
   }
 }
 
@@ -241,10 +254,15 @@ resource "aws_route_table_association" "private_assoc" {
   route_table_id = aws_route_table.private.id
 }
 
+resource "aws_route_table_association" "private_assoc_b" {
+  subnet_id      = aws_subnet.private_b.id
+  route_table_id = aws_route_table.private.id
+}
+
 # 19. Create a DB Subnet Group (RDS needs this to know which subnets it can use)
 resource "aws_db_subnet_group" "main" {
   name       = "securehost-main"
-  subnet_ids = [aws_subnet.private.id] # You can add a second subnet in another AZ for High Availability later.
+  subnet_ids = [aws_subnet.private.id, aws_subnet.private_b.id] # You can add a second subnet in another AZ for High Availability later.
 
   tags = {
     Name = "SecureHost-DB-Subnet-Group"
@@ -256,9 +274,9 @@ resource "aws_db_instance" "main" {
   identifier             = "securehostdb"
   instance_class         = "db.t3.micro" # Free tier eligible
   allocated_storage      = 20            # GB, min for free tier
-  engine                 = "postgresql"
+  engine                 = "postgres"
   engine_version         = "15"          # Use a recent stable version
-  username               = "Admin-XinYi"    # Change this to a custom admin username in a real project!
+  username               = "XinYi"    # Change this to a custom admin username in a real project!
   password               = "YourSuperSecurePassword123!" # Change this! Use a Terraform variable for secrets.
   db_subnet_group_name   = aws_db_subnet_group.main.name
   vpc_security_group_ids = [aws_security_group.db_sg.id]
@@ -268,4 +286,9 @@ resource "aws_db_instance" "main" {
   tags = {
     Name = "SecureHost-Database"
   }
+
+  depends_on = [
+    aws_db_subnet_group.main,
+    aws_security_group.db_sg
+  ]
 }

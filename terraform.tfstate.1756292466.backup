@@ -1,139 +1,10 @@
 {
   "version": 4,
   "terraform_version": "1.13.0",
-  "serial": 81,
+  "serial": 31,
   "lineage": "3b23b651-25d4-f608-f310-2a2193a052c9",
   "outputs": {},
   "resources": [
-    {
-      "mode": "managed",
-      "type": "aws_db_instance",
-      "name": "main",
-      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
-      "instances": [
-        {
-          "schema_version": 2,
-          "attributes": {
-            "address": "securehostdb.cojmoo6cusnl.us-east-1.rds.amazonaws.com",
-            "allocated_storage": 20,
-            "allow_major_version_upgrade": null,
-            "apply_immediately": false,
-            "arn": "arn:aws:rds:us-east-1:790813558130:db:securehostdb",
-            "auto_minor_version_upgrade": true,
-            "availability_zone": "us-east-1b",
-            "backup_retention_period": 0,
-            "backup_target": "region",
-            "backup_window": "10:26-10:56",
-            "blue_green_update": [],
-            "ca_cert_identifier": "rds-ca-rsa2048-g1",
-            "character_set_name": "",
-            "copy_tags_to_snapshot": false,
-            "custom_iam_instance_profile": "",
-            "customer_owned_ip_enabled": false,
-            "database_insights_mode": "standard",
-            "db_name": "",
-            "db_subnet_group_name": "securehost-main",
-            "dedicated_log_volume": false,
-            "delete_automated_backups": true,
-            "deletion_protection": false,
-            "domain": "",
-            "domain_auth_secret_arn": "",
-            "domain_dns_ips": null,
-            "domain_fqdn": "",
-            "domain_iam_role_name": "",
-            "domain_ou": "",
-            "enabled_cloudwatch_logs_exports": null,
-            "endpoint": "securehostdb.cojmoo6cusnl.us-east-1.rds.amazonaws.com:5432",
-            "engine": "postgres",
-            "engine_lifecycle_support": "open-source-rds-extended-support",
-            "engine_version": "15",
-            "engine_version_actual": "15.12",
-            "final_snapshot_identifier": null,
-            "hosted_zone_id": "Z2R2ITUGPM61AM",
-            "iam_database_authentication_enabled": false,
-            "id": "db-424HFU3COZC2DIM2IXR4EHJNEQ",
-            "identifier": "securehostdb",
-            "identifier_prefix": "",
-            "instance_class": "db.t3.micro",
-            "iops": 0,
-            "kms_key_id": "",
-            "latest_restorable_time": "",
-            "license_model": "postgresql-license",
-            "listener_endpoint": [],
-            "maintenance_window": "fri:04:07-fri:04:37",
-            "manage_master_user_password": null,
-            "master_user_secret": [],
-            "master_user_secret_kms_key_id": null,
-            "max_allocated_storage": 0,
-            "monitoring_interval": 0,
-            "monitoring_role_arn": "",
-            "multi_az": false,
-            "nchar_character_set_name": "",
-            "network_type": "IPV4",
-            "option_group_name": "default:postgres-15",
-            "parameter_group_name": "default.postgres15",
-            "password": "YourSuperSecurePassword123!",
-            "password_wo": null,
-            "password_wo_version": null,
-            "performance_insights_enabled": false,
-            "performance_insights_kms_key_id": "",
-            "performance_insights_retention_period": 0,
-            "port": 5432,
-            "publicly_accessible": false,
-            "region": "us-east-1",
-            "replica_mode": "",
-            "replicas": [],
-            "replicate_source_db": "",
-            "resource_id": "db-424HFU3COZC2DIM2IXR4EHJNEQ",
-            "restore_to_point_in_time": [],
-            "s3_import": [],
-            "skip_final_snapshot": true,
-            "snapshot_identifier": null,
-            "status": "available",
-            "storage_encrypted": false,
-            "storage_throughput": 0,
-            "storage_type": "gp2",
-            "tags": {
-              "Name": "SecureHost-Database"
-            },
-            "tags_all": {
-              "Name": "SecureHost-Database"
-            },
-            "timeouts": null,
-            "timezone": "",
-            "upgrade_storage_config": null,
-            "username": "XinYi",
-            "vpc_security_group_ids": [
-              "sg-010309705c6f83495"
-            ]
-          },
-          "sensitive_attributes": [
-            [
-              {
-                "type": "get_attr",
-                "value": "password"
-              }
-            ],
-            [
-              {
-                "type": "get_attr",
-                "value": "password_wo"
-              }
-            ]
-          ],
-          "identity_schema_version": 0,
-          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInVwZGF0ZSI6NDgwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMiJ9",
-          "dependencies": [
-            "aws_db_subnet_group.main",
-            "aws_security_group.db_sg",
-            "aws_security_group.web_sg",
-            "aws_subnet.private",
-            "aws_subnet.private_b",
-            "aws_vpc.main"
-          ]
-        }
-      ]
-    },
     {
       "mode": "managed",
       "type": "aws_db_subnet_group",
@@ -150,8 +21,8 @@
             "name_prefix": "",
             "region": "us-east-1",
             "subnet_ids": [
-              "subnet-0000da9ce366de5be",
-              "subnet-0c06725a5cd95419c"
+              "subnet-0055c17137b218127",
+              "subnet-0c32901a4c4f150d8"
             ],
             "supported_network_types": [
               "IPV4"
@@ -162,7 +33,7 @@
             "tags_all": {
               "Name": "SecureHost-DB-Subnet-Group"
             },
-            "vpc_id": "vpc-059e992da86ed705e"
+            "vpc_id": "vpc-020614ba26fcf16df"
           },
           "sensitive_attributes": [],
           "identity_schema_version": 0,
@@ -185,24 +56,24 @@
           "schema_version": 0,
           "attributes": {
             "address": null,
-            "allocation_id": "eipalloc-0b18216b100e771c2",
-            "arn": "arn:aws:ec2:us-east-1:790813558130:elastic-ip/eipalloc-0b18216b100e771c2",
+            "allocation_id": "eipalloc-0ba90e5cc0d3c724c",
+            "arn": "arn:aws:ec2:us-east-1:790813558130:elastic-ip/eipalloc-0ba90e5cc0d3c724c",
             "associate_with_private_ip": null,
-            "association_id": "eipassoc-04e9911593049095d",
+            "association_id": "eipassoc-0497633735111c1c2",
             "carrier_ip": "",
             "customer_owned_ip": "",
             "customer_owned_ipv4_pool": "",
             "domain": "vpc",
-            "id": "eipalloc-0b18216b100e771c2",
+            "id": "eipalloc-0ba90e5cc0d3c724c",
             "instance": "",
             "ipam_pool_id": null,
             "network_border_group": "us-east-1",
-            "network_interface": "eni-00b34bc5dd2dcfed7",
-            "private_dns": "ip-10-0-1-88.ec2.internal",
-            "private_ip": "10.0.1.88",
+            "network_interface": "eni-045898300d251065b",
+            "private_dns": "ip-10-0-1-48.ec2.internal",
+            "private_ip": "10.0.1.48",
             "ptr_record": "",
-            "public_dns": "ec2-34-207-35-154.compute-1.amazonaws.com",
-            "public_ip": "34.207.35.154",
+            "public_dns": "ec2-3-227-218-107.compute-1.amazonaws.com",
+            "public_ip": "3.227.218.107",
             "public_ipv4_pool": "amazon",
             "region": "us-east-1",
             "tags": {
@@ -229,7 +100,7 @@
           "schema_version": 0,
           "attributes": {
             "arn": "arn:aws:iam::790813558130:instance-profile/XINYIEC2-Profile",
-            "create_date": "2025-08-27T11:15:37Z",
+            "create_date": "2025-08-24T16:00:32Z",
             "id": "XINYIEC2-Profile",
             "name": "XINYIEC2-Profile",
             "name_prefix": "",
@@ -237,7 +108,7 @@
             "role": "XinYi-EC2",
             "tags": {},
             "tags_all": {},
-            "unique_id": "AIPA3QIBJIVZHHTQG52SL"
+            "unique_id": "AIPA3QIBJIVZOYLVTY3R3"
           },
           "sensitive_attributes": [],
           "identity_schema_version": 0,
@@ -259,7 +130,7 @@
           "attributes": {
             "arn": "arn:aws:iam::790813558130:role/XinYi-EC2",
             "assume_role_policy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"ec2.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}",
-            "create_date": "2025-08-27T11:15:36Z",
+            "create_date": "2025-08-24T16:00:30Z",
             "description": "",
             "force_detach_policies": false,
             "id": "XinYi-EC2",
@@ -278,7 +149,7 @@
             "tags_all": {
               "Name": "SecureHost-EC2-Role"
             },
-            "unique_id": "AROA3QIBJIVZMX5QUPXXW"
+            "unique_id": "AROA3QIBJIVZGMCMXORXR"
           },
           "sensitive_attributes": [],
           "identity_schema_version": 0,
@@ -327,7 +198,7 @@
           "schema_version": 2,
           "attributes": {
             "ami": "ami-0fc5d935ebf8bc3bc",
-            "arn": "arn:aws:ec2:us-east-1:790813558130:instance/i-0923ea514c6b7faf6",
+            "arn": "arn:aws:ec2:us-east-1:790813558130:instance/i-092d9d2796a681231",
             "associate_public_ip_address": true,
             "availability_zone": "us-east-1a",
             "capacity_reservation_specification": [
@@ -365,7 +236,7 @@
             "host_id": "",
             "host_resource_group_arn": null,
             "iam_instance_profile": "XINYIEC2-Profile",
-            "id": "i-0923ea514c6b7faf6",
+            "id": "i-092d9d2796a681231",
             "instance_initiated_shutdown_behavior": "stop",
             "instance_lifecycle": "",
             "instance_market_options": [],
@@ -398,11 +269,11 @@
             "primary_network_interface": [
               {
                 "delete_on_termination": true,
-                "network_interface_id": "eni-0f5e8f100a73ac977"
+                "network_interface_id": "eni-0f8d8b0c3b463c3fb"
               }
             ],
-            "primary_network_interface_id": "eni-0f5e8f100a73ac977",
-            "private_dns": "ip-10-0-1-66.ec2.internal",
+            "primary_network_interface_id": "eni-0f8d8b0c3b463c3fb",
+            "private_dns": "ip-10-0-1-68.ec2.internal",
             "private_dns_name_options": [
               {
                 "enable_resource_name_dns_a_record": false,
@@ -410,9 +281,9 @@
                 "hostname_type": "ip-name"
               }
             ],
-            "private_ip": "10.0.1.66",
+            "private_ip": "10.0.1.68",
             "public_dns": "",
-            "public_ip": "18.212.168.121",
+            "public_ip": "34.227.150.236",
             "region": "us-east-1",
             "root_block_device": [
               {
@@ -424,7 +295,7 @@
                 "tags": {},
                 "tags_all": {},
                 "throughput": 0,
-                "volume_id": "vol-0bbb4d163e37b6d3b",
+                "volume_id": "vol-0c7f87a91a9e436fa",
                 "volume_size": 8,
                 "volume_type": "gp2"
               }
@@ -433,7 +304,7 @@
             "security_groups": [],
             "source_dest_check": true,
             "spot_instance_request_id": "",
-            "subnet_id": "subnet-0b7fd58b70d85c831",
+            "subnet_id": "subnet-0541a4293c29bd6b1",
             "tags": {
               "Name": "XinYi-Web-Server"
             },
@@ -447,7 +318,7 @@
             "user_data_replace_on_change": false,
             "volume_tags": null,
             "vpc_security_group_ids": [
-              "sg-05762969f440224ea"
+              "sg-0a849e97356344c4a"
             ]
           },
           "sensitive_attributes": [],
@@ -472,8 +343,8 @@
         {
           "schema_version": 0,
           "attributes": {
-            "arn": "arn:aws:ec2:us-east-1:790813558130:internet-gateway/igw-0983869972ee60af9",
-            "id": "igw-0983869972ee60af9",
+            "arn": "arn:aws:ec2:us-east-1:790813558130:internet-gateway/igw-033bdaa6470722430",
+            "id": "igw-033bdaa6470722430",
             "owner_id": "790813558130",
             "region": "us-east-1",
             "tags": {
@@ -483,7 +354,7 @@
               "Name": "SecureHost-IGW"
             },
             "timeouts": null,
-            "vpc_id": "vpc-059e992da86ed705e"
+            "vpc_id": "vpc-020614ba26fcf16df"
           },
           "sensitive_attributes": [],
           "identity_schema_version": 0,
@@ -503,18 +374,18 @@
         {
           "schema_version": 0,
           "attributes": {
-            "allocation_id": "eipalloc-0b18216b100e771c2",
-            "association_id": "eipassoc-04e9911593049095d",
+            "allocation_id": "eipalloc-0ba90e5cc0d3c724c",
+            "association_id": "eipassoc-0497633735111c1c2",
             "connectivity_type": "public",
-            "id": "nat-089a3b2d1a130f81e",
-            "network_interface_id": "eni-00b34bc5dd2dcfed7",
-            "private_ip": "10.0.1.88",
-            "public_ip": "34.207.35.154",
+            "id": "nat-05b259f2bfaea81ef",
+            "network_interface_id": "eni-045898300d251065b",
+            "private_ip": "10.0.1.48",
+            "public_ip": "3.227.218.107",
             "region": "us-east-1",
             "secondary_allocation_ids": [],
             "secondary_private_ip_address_count": 0,
             "secondary_private_ip_addresses": [],
-            "subnet_id": "subnet-0b7fd58b70d85c831",
+            "subnet_id": "subnet-0541a4293c29bd6b1",
             "tags": {
               "Name": "SecureHost-NAT-GW"
             },
@@ -544,8 +415,8 @@
         {
           "schema_version": 0,
           "attributes": {
-            "arn": "arn:aws:ec2:us-east-1:790813558130:route-table/rtb-0ef097c2b10a4c5c0",
-            "id": "rtb-0ef097c2b10a4c5c0",
+            "arn": "arn:aws:ec2:us-east-1:790813558130:route-table/rtb-07b858cbaa5bd0a18",
+            "id": "rtb-07b858cbaa5bd0a18",
             "owner_id": "790813558130",
             "propagating_vgws": [],
             "region": "us-east-1",
@@ -559,7 +430,7 @@
                 "gateway_id": "",
                 "ipv6_cidr_block": "",
                 "local_gateway_id": "",
-                "nat_gateway_id": "nat-089a3b2d1a130f81e",
+                "nat_gateway_id": "nat-05b259f2bfaea81ef",
                 "network_interface_id": "",
                 "transit_gateway_id": "",
                 "vpc_endpoint_id": "",
@@ -573,7 +444,7 @@
               "Name": "SecureHost-Private-RT"
             },
             "timeouts": null,
-            "vpc_id": "vpc-059e992da86ed705e"
+            "vpc_id": "vpc-020614ba26fcf16df"
           },
           "sensitive_attributes": [],
           "identity_schema_version": 0,
@@ -597,8 +468,8 @@
         {
           "schema_version": 0,
           "attributes": {
-            "arn": "arn:aws:ec2:us-east-1:790813558130:route-table/rtb-02f41344d2018ddb6",
-            "id": "rtb-02f41344d2018ddb6",
+            "arn": "arn:aws:ec2:us-east-1:790813558130:route-table/rtb-0f6234c1a4862a472",
+            "id": "rtb-0f6234c1a4862a472",
             "owner_id": "790813558130",
             "propagating_vgws": [],
             "region": "us-east-1",
@@ -609,7 +480,7 @@
                 "core_network_arn": "",
                 "destination_prefix_list_id": "",
                 "egress_only_gateway_id": "",
-                "gateway_id": "igw-0983869972ee60af9",
+                "gateway_id": "igw-033bdaa6470722430",
                 "ipv6_cidr_block": "",
                 "local_gateway_id": "",
                 "nat_gateway_id": "",
@@ -626,7 +497,7 @@
               "Name": "SecureHost-Public-RT"
             },
             "timeouts": null,
-            "vpc_id": "vpc-059e992da86ed705e"
+            "vpc_id": "vpc-020614ba26fcf16df"
           },
           "sensitive_attributes": [],
           "identity_schema_version": 0,
@@ -648,10 +519,10 @@
           "schema_version": 0,
           "attributes": {
             "gateway_id": "",
-            "id": "rtbassoc-01d02dd3bdca6fdfc",
+            "id": "rtbassoc-0dbf562a6aa2402ea",
             "region": "us-east-1",
-            "route_table_id": "rtb-0ef097c2b10a4c5c0",
-            "subnet_id": "subnet-0c06725a5cd95419c",
+            "route_table_id": "rtb-07b858cbaa5bd0a18",
+            "subnet_id": "subnet-0055c17137b218127",
             "timeouts": null
           },
           "sensitive_attributes": [],
@@ -679,10 +550,10 @@
           "schema_version": 0,
           "attributes": {
             "gateway_id": "",
-            "id": "rtbassoc-090e2386a79d5ec20",
+            "id": "rtbassoc-035faa00c634984a8",
             "region": "us-east-1",
-            "route_table_id": "rtb-0ef097c2b10a4c5c0",
-            "subnet_id": "subnet-0000da9ce366de5be",
+            "route_table_id": "rtb-07b858cbaa5bd0a18",
+            "subnet_id": "subnet-0c32901a4c4f150d8",
             "timeouts": null
           },
           "sensitive_attributes": [],
@@ -710,10 +581,10 @@
           "schema_version": 0,
           "attributes": {
             "gateway_id": "",
-            "id": "rtbassoc-01c11fa7e9ff58920",
+            "id": "rtbassoc-08f81d31fdc21b704",
             "region": "us-east-1",
-            "route_table_id": "rtb-02f41344d2018ddb6",
-            "subnet_id": "subnet-0b7fd58b70d85c831",
+            "route_table_id": "rtb-0f6234c1a4862a472",
+            "subnet_id": "subnet-0541a4293c29bd6b1",
             "timeouts": null
           },
           "sensitive_attributes": [],
@@ -731,86 +602,14 @@
     {
       "mode": "managed",
       "type": "aws_security_group",
-      "name": "db_sg",
-      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
-      "instances": [
-        {
-          "schema_version": 1,
-          "attributes": {
-            "arn": "arn:aws:ec2:us-east-1:790813558130:security-group/sg-010309705c6f83495",
-            "description": "Allow inbound PostgreSQL traffic ONLY from the Web Server SG",
-            "egress": [
-              {
-                "cidr_blocks": [
-                  "0.0.0.0/0"
-                ],
-                "description": "",
-                "from_port": 0,
-                "ipv6_cidr_blocks": [],
-                "prefix_list_ids": [],
-                "protocol": "-1",
-                "security_groups": [],
-                "self": false,
-                "to_port": 0
-              }
-            ],
-            "id": "sg-010309705c6f83495",
-            "ingress": [
-              {
-                "cidr_blocks": [],
-                "description": "",
-                "from_port": 5432,
-                "ipv6_cidr_blocks": [],
-                "prefix_list_ids": [],
-                "protocol": "tcp",
-                "security_groups": [
-                  "sg-05762969f440224ea"
-                ],
-                "self": false,
-                "to_port": 5432
-              }
-            ],
-            "name": "database-sg",
-            "name_prefix": "",
-            "owner_id": "790813558130",
-            "region": "us-east-1",
-            "revoke_rules_on_delete": false,
-            "tags": {
-              "Name": "Database-SG"
-            },
-            "tags_all": {
-              "Name": "Database-SG"
-            },
-            "timeouts": null,
-            "vpc_id": "vpc-059e992da86ed705e"
-          },
-          "sensitive_attributes": [],
-          "identity_schema_version": 0,
-          "identity": {
-            "account_id": "790813558130",
-            "id": "sg-010309705c6f83495",
-            "region": "us-east-1"
-          },
-          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
-          "dependencies": [
-            "aws_security_group.web_sg",
-            "aws_vpc.main"
-          ],
-          "create_before_destroy": true
-        }
-      ]
-    },
-    {
-      "mode": "managed",
-      "type": "aws_security_group",
       "name": "web_sg",
       "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
       "instances": [
         {
           "schema_version": 1,
           "attributes": {
-            "arn": "arn:aws:ec2:us-east-1:790813558130:security-group/sg-05762969f440224ea",
-            "description": "Allow HTTP/HTTPS from internet and SSH from my IP. Allow outbound to DB SG.",
+            "arn": "arn:aws:ec2:us-east-1:790813558130:security-group/sg-0a849e97356344c4a",
+            "description": "Allow HTTP, HTTPS, and SSM traffic",
             "egress": [
               {
                 "cidr_blocks": [
@@ -826,8 +625,21 @@
                 "to_port": 0
               }
             ],
-            "id": "sg-05762969f440224ea",
+            "id": "sg-0a849e97356344c4a",
             "ingress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
               {
                 "cidr_blocks": [
                   "0.0.0.0/0"
@@ -840,19 +652,6 @@
                 "security_groups": [],
                 "self": false,
                 "to_port": 80
-              },
-              {
-                "cidr_blocks": [
-                  "0.0.0.0/0"
-                ],
-                "description": "Allow HTTPS for web traffic and SSM for management",
-                "from_port": 443,
-                "ipv6_cidr_blocks": [],
-                "prefix_list_ids": [],
-                "protocol": "tcp",
-                "security_groups": [],
-                "self": false,
-                "to_port": 443
               }
             ],
             "name": "web-server-sg",
@@ -861,19 +660,19 @@
             "region": "us-east-1",
             "revoke_rules_on_delete": false,
             "tags": {
-              "Name": "Web-Server-SG"
+              "Name": "Allow-Web-and-SSM"
             },
             "tags_all": {
-              "Name": "Web-Server-SG"
+              "Name": "Allow-Web-and-SSM"
             },
             "timeouts": null,
-            "vpc_id": "vpc-059e992da86ed705e"
+            "vpc_id": "vpc-020614ba26fcf16df"
           },
           "sensitive_attributes": [],
           "identity_schema_version": 0,
           "identity": {
             "account_id": "790813558130",
-            "id": "sg-05762969f440224ea",
+            "id": "sg-0a849e97356344c4a",
             "region": "us-east-1"
           },
           "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
@@ -893,7 +692,7 @@
         {
           "schema_version": 1,
           "attributes": {
-            "arn": "arn:aws:ec2:us-east-1:790813558130:subnet/subnet-0c06725a5cd95419c",
+            "arn": "arn:aws:ec2:us-east-1:790813558130:subnet/subnet-0055c17137b218127",
             "assign_ipv6_address_on_creation": false,
             "availability_zone": "us-east-1a",
             "availability_zone_id": "use1-az2",
@@ -903,7 +702,7 @@
             "enable_lni_at_device_index": 0,
             "enable_resource_name_dns_a_record_on_launch": false,
             "enable_resource_name_dns_aaaa_record_on_launch": false,
-            "id": "subnet-0c06725a5cd95419c",
+            "id": "subnet-0055c17137b218127",
             "ipv6_cidr_block": "",
             "ipv6_cidr_block_association_id": "",
             "ipv6_native": false,
@@ -920,13 +719,13 @@
               "Name": "SecureHost-Private-Subnet"
             },
             "timeouts": null,
-            "vpc_id": "vpc-059e992da86ed705e"
+            "vpc_id": "vpc-020614ba26fcf16df"
           },
           "sensitive_attributes": [],
           "identity_schema_version": 0,
           "identity": {
             "account_id": "790813558130",
-            "id": "subnet-0c06725a5cd95419c",
+            "id": "subnet-0055c17137b218127",
             "region": "us-east-1"
           },
           "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
@@ -945,7 +744,7 @@
         {
           "schema_version": 1,
           "attributes": {
-            "arn": "arn:aws:ec2:us-east-1:790813558130:subnet/subnet-0000da9ce366de5be",
+            "arn": "arn:aws:ec2:us-east-1:790813558130:subnet/subnet-0c32901a4c4f150d8",
             "assign_ipv6_address_on_creation": false,
             "availability_zone": "us-east-1b",
             "availability_zone_id": "use1-az4",
@@ -955,7 +754,7 @@
             "enable_lni_at_device_index": 0,
             "enable_resource_name_dns_a_record_on_launch": false,
             "enable_resource_name_dns_aaaa_record_on_launch": false,
-            "id": "subnet-0000da9ce366de5be",
+            "id": "subnet-0c32901a4c4f150d8",
             "ipv6_cidr_block": "",
             "ipv6_cidr_block_association_id": "",
             "ipv6_native": false,
@@ -972,13 +771,13 @@
               "Name": "SecureHost-Private-Subnet-B"
             },
             "timeouts": null,
-            "vpc_id": "vpc-059e992da86ed705e"
+            "vpc_id": "vpc-020614ba26fcf16df"
           },
           "sensitive_attributes": [],
           "identity_schema_version": 0,
           "identity": {
             "account_id": "790813558130",
-            "id": "subnet-0000da9ce366de5be",
+            "id": "subnet-0c32901a4c4f150d8",
             "region": "us-east-1"
           },
           "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
@@ -997,7 +796,7 @@
         {
           "schema_version": 1,
           "attributes": {
-            "arn": "arn:aws:ec2:us-east-1:790813558130:subnet/subnet-0b7fd58b70d85c831",
+            "arn": "arn:aws:ec2:us-east-1:790813558130:subnet/subnet-0541a4293c29bd6b1",
             "assign_ipv6_address_on_creation": false,
             "availability_zone": "us-east-1a",
             "availability_zone_id": "use1-az2",
@@ -1007,7 +806,7 @@
             "enable_lni_at_device_index": 0,
             "enable_resource_name_dns_a_record_on_launch": false,
             "enable_resource_name_dns_aaaa_record_on_launch": false,
-            "id": "subnet-0b7fd58b70d85c831",
+            "id": "subnet-0541a4293c29bd6b1",
             "ipv6_cidr_block": "",
             "ipv6_cidr_block_association_id": "",
             "ipv6_native": false,
@@ -1024,13 +823,13 @@
               "Name": "SecureHost-Public-Subnet"
             },
             "timeouts": null,
-            "vpc_id": "vpc-059e992da86ed705e"
+            "vpc_id": "vpc-020614ba26fcf16df"
           },
           "sensitive_attributes": [],
           "identity_schema_version": 0,
           "identity": {
             "account_id": "790813558130",
-            "id": "subnet-0b7fd58b70d85c831",
+            "id": "subnet-0541a4293c29bd6b1",
             "region": "us-east-1"
           },
           "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
@@ -1049,17 +848,17 @@
         {
           "schema_version": 1,
           "attributes": {
-            "arn": "arn:aws:ec2:us-east-1:790813558130:vpc/vpc-059e992da86ed705e",
+            "arn": "arn:aws:ec2:us-east-1:790813558130:vpc/vpc-020614ba26fcf16df",
             "assign_generated_ipv6_cidr_block": false,
             "cidr_block": "10.0.0.0/16",
-            "default_network_acl_id": "acl-0e2fab8a3b144298f",
-            "default_route_table_id": "rtb-0fab2431e87ee0480",
-            "default_security_group_id": "sg-05aafbd492f50fc1c",
+            "default_network_acl_id": "acl-071d32f940475ca76",
+            "default_route_table_id": "rtb-0a65852c9fdaf1bdd",
+            "default_security_group_id": "sg-0c0f21659ac69144c",
             "dhcp_options_id": "dopt-0823adf4bdb62fff0",
             "enable_dns_hostnames": false,
             "enable_dns_support": true,
             "enable_network_address_usage_metrics": false,
-            "id": "vpc-059e992da86ed705e",
+            "id": "vpc-020614ba26fcf16df",
             "instance_tenancy": "default",
             "ipv4_ipam_pool_id": null,
             "ipv4_netmask_length": null,
@@ -1068,7 +867,7 @@
             "ipv6_cidr_block_network_border_group": "",
             "ipv6_ipam_pool_id": "",
             "ipv6_netmask_length": 0,
-            "main_route_table_id": "rtb-0fab2431e87ee0480",
+            "main_route_table_id": "rtb-0a65852c9fdaf1bdd",
             "owner_id": "790813558130",
             "region": "us-east-1",
             "tags": {
